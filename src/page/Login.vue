@@ -44,33 +44,9 @@ export default {
         code: ''
       },
       rules: { //验证规则
-        userName: [  //用户名
-          {
-            validator: (rule, value, callback) => {
-              if (value == '') {
-                callback(this.$message.error('请输入用户名'))
-              }
-            }, trigger: 'blur'
-          }
-        ],
-        passWord: [ //密码
-          {
-            validator: (rule, value, callback) => {
-              if (value == '') {
-                callback(this.$message.error('请输入密码'))
-              }
-            }, trigger: 'blur'
-          }
-        ],
-        code: [ //密码
-          {
-            validator: (rule, value, callback) => {
-              if (value == '') {
-                callback(this.$message.error('请输入密码'))
-              }
-            }, trigger: 'blur'
-          }
-        ]
+        userName: [{ required: true, message: "请输入账号", trigger: "blur" }],
+        passWord: [{ required: true, message: "请输入密码", trigger: "blur" }],
+        code: [{ required: true, message: "请输入验证码", trigger: "blur" }],
       }
 
     }
@@ -92,14 +68,11 @@ export default {
   },
   methods: {
     submitForm (formName) {  //提交验证
-      console.log(33,)
-
       this.$refs[formName].validate((valid) => {
-        console.log(33, valid)
         if (valid) {
           this.httpLogin()
         } else {
-          this.$message.error('222')
+          this.$message.error('请检查输入是否完整')
           return false;
         }
       });

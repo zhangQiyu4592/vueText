@@ -1,5 +1,7 @@
 <template>
-  <div class="main-box"></div>
+  <div class="main-box">
+    main
+  </div>
 </template>
 
 
