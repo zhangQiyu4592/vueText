@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
@@ -14,7 +14,17 @@ export default new Router({
     {
       path: '/main',
       name: 'Main',
-      component: () => import('@/page/Main') //首页
+      component: () => import('@/page/Main'), //首页
     }
   ]
 })
+router.beforeEach((to, from, next) => {
+  if (to.path === '/') {
+    // console.log(22, localStorage.getItem('isLogin'))
+    // if (!localStorage.getItem('isLogin')) {
+    //   console.log(33,)
+    //   next({ path: "/login" })
+    // }
+  }
+})
+export default router

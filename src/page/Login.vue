@@ -10,11 +10,13 @@
               <el-input type="text" v-model.trim="loginData.userName" autocomplete="off"></el-input>
             </el-form-item>
           </el-row>
+
           <el-row type="flex" justify="center">
             <el-form-item label="密码：" prop="passWord">
               <el-input type="password" v-model.trim="loginData.passWord" autocomplete="off"></el-input>
             </el-form-item>
           </el-row>
+
           <el-row type="flex" justify="center">
             <el-form-item label="验证码：" prop="code">
               <el-input type="text" v-model.trim="loginData.code"></el-input>
@@ -81,6 +83,7 @@ export default {
       this.$refs[formName].resetFields();
     },
     httpLogin () { // 登录请求
+      localStorage.setItem('isLogin', true)
       this.$router.push({ name: 'Main' })
     },
 
