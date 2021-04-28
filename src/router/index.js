@@ -18,13 +18,5 @@ const router = new Router({
     }
   ]
 })
-router.beforeEach((to, from, next) => {
-  if (to.path === '/') {
-    // console.log(22, localStorage.getItem('isLogin'))
-    // if (!localStorage.getItem('isLogin')) {
-    //   console.log(33,)
-    //   next({ path: "/login" })
-    // }
-  }
-})
+
 export default router
