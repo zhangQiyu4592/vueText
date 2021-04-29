@@ -6,12 +6,24 @@
 
 
 <script>
-
+import { getDataHttp } from '@/request'
 export default {
   name: '',
   components: {},
   data () {
-    return
+    return {
+
+    }
+  },
+  mounted () {
+    // this.getData()
+  },
+  methods: {
+    getData () {
+      getDataHttp({}).then(res => {
+        console.log(22, res)
+      })
+    },
   },
 }
 </script>
