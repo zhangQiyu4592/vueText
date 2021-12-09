@@ -22,27 +22,29 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 
   // these devServer options should be customized in /config/index.js
   devServer: {
+  
     clientLogLevel: 'warning',
     historyApiFallback: {
       rewrites: [
         { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') },
       ],
     },
-    hot: true,
+    hot: true,  //热加载
     contentBase: false, // since we use CopyWebpackPlugin.
-    compress: true,
-    host: HOST || config.dev.host,
-    port: PORT || config.dev.port,
+    compress: true,  //压缩
+    host: HOST || config.dev.host,    //
+    port: PORT || config.dev.port,  //端口
     open: config.dev.autoOpenBrowser,
     overlay: config.dev.errorOverlay
       ? { warnings: false, errors: true }
       : false,
     publicPath: config.dev.assetsPublicPath,
-    proxy: config.dev.proxyTable,
-    quiet: true, // necessary for FriendlyErrorsPlugin
+    proxy: config.dev.proxyTable,  //接口代理
+    quiet: true, // necessary for FriendlyErrorsPlugin  //控制台是否禁止打印警告和错误,若用FriendlyErrorsPlugin 此处为 true
     watchOptions: {
       poll: config.dev.poll,
-    }
+    },
+  
   },
   plugins: [
     new webpack.DefinePlugin({

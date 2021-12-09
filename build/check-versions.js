@@ -1,10 +1,12 @@
-'use strict'
+//该文件用于检测node和npm的版本，实现版本依赖
+
+'use strict' 
 const chalk = require('chalk')
 const semver = require('semver')
 const packageConfig = require('../package.json')
 const shell = require('shelljs')
 
-function exec (cmd) {
+function exec (cmd) {  //返回通过child_process模块的新建子进程，执行 Unix 系统命令后转成没有空格的字符串
   return require('child_process').execSync(cmd).toString().trim()
 }
 

@@ -83,7 +83,6 @@ export default {
       this.$refs[formName].resetFields();
     },
     httpLogin () { // 登录请求
-      localStorage.setItem('isLogin', true)
       this.$router.push({ name: 'Main' })
     },
 

@@ -1,7 +1,7 @@
 'use strict'
-require('./check-versions')()
+require('./check-versions')()  //check-versions：调用检查版本的文件。加（）代表直接调用该函数
 
-process.env.NODE_ENV = 'production'
+process.env.NODE_ENV = 'production' //设置当前是生产环境
 
 const ora = require('ora')
 const rm = require('rimraf')

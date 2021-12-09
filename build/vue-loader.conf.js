@@ -1,3 +1,4 @@
+//该文件的主要作用就是处理.vue文件，解析这个文件中的每个语言块（template、script、style),转换成js可用的js模块。
 'use strict'
 const utils = require('./utils')
 const config = require('../config')
