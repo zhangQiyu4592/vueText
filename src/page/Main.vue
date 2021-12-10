@@ -27,7 +27,7 @@
 
 <script>
 import Vue from 'vue'
-import { getDataHttp } from '../request'
+import { getlist } from '../http'
 export default {
   name: '',
   components: {},
@@ -42,34 +42,11 @@ export default {
     }
   },
   mounted () {
-    // this.getData()
-    this.xlsData()
+    this.getData()
   },
   methods: {
-    xlsData () {
-      //  call方法 bind   Apply   改变this的指向
-      let obj = {
-        MenuList: ['objMenuList'],
-        age: 20,
-        fun: function () {
-          console.log(66, this.MenuList)
-        }
-      }
-      let aa = {
-        MenuList: ['AAA']
-      }
-      obj.fun.call(this)
-      obj.fun.apply(aa)
-      obj.fun.bind(aa)()
-      console.log(66, Vue.prototype)
-
-    },
-
-
-
-
     getData () {
-      getDataHttp({}).then(res => {
+      getlist({ pageNo: 1 }).then(res => {
         console.log(22, res)
       })
     },

@@ -15,6 +15,11 @@ const router = new Router({
       path: '/main',
       name: 'Main',
       component: () => import('@/page/Main'), //首页
+    },
+    {
+      path:'/mainPage',
+      name:'MainPage',
+      component:() =>import('@/page/module_1/subMenu/Something')//第三个页面
     }
   ]
 })

@@ -10,6 +10,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.use(ElementUi, less)
 Vue.prototype.$message = Message
+require('../src/mock')
 
 Vue.config.productionTip = false
 
