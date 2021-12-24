@@ -31,7 +31,7 @@
 <script>
 import Vue from 'vue'
 import { getlist } from '../http'
-import { outNum4String, outNum4Object } from '@/utils'
+import { outNum4String, outNum4Object, numToThousands, thousandsToNum, deepClone } from '@/utils'
 
 export default {
   name: '',
@@ -186,9 +186,10 @@ export default {
       //  charAt(index) 根据下标找字符  charCodeAt(index) 获取字符串ascii码
       //  indexOf('str') 是否包含某段字符串  返回在字符串中的位置
       //  trim() 去除字符串两端的空格
+      console.log(999999, parseInt(Math.random() * 2))
+      Math.random() //生成0-1的随机数
 
 
-      console.log(999, outNum4Object(true))
 
 
 
@@ -235,26 +236,41 @@ export default {
       // 但是用window.location.href＝"" 却是在原窗口打开的
       let cc = [[1, 2], [3, 4], [5]]
       console.log(78, cc.flat(1))
-      //数字千分位
-      thousandsChange(89782343)
-      function thousandsChange (num) {
-        let arr = num.toString().split('')
+
+      //  判断字符串是否存在回文
+      function isReText (str) {    //  mam  从左到右
+        return str === str.split('').reverse().join('')
+      }
+      //  去掉一组整型数组重复的值
+      let ee = [4, 3, 1, 23, 4]
+      console.log(99, quC(ee))
+      function quC (params) {
+        const arr = params
         let newArr = []
         arr.forEach((v, i) => {
-          let count = 0
-          let numC = ''
-          if (((count + 1) * 3) - 1 == i) {
-            count++
-            numC = v + ','
-          } else {
-            numC = v
+          if (!newArr.includes(v)) {
+            newArr.push(v)
           }
-          console.log(6, numC)
-          newArr.push(numC)
         })
-        console.log(7777, newArr.join(''))
-        return newArr.join()
+        return newArr
       }
+
+      // 随机生成指定长度的字符串 我本将心向明月 奈何明月照沟渠
+      randomNumStr(8)
+      function randomNumStr (num) {
+        const str = 'abcdefghijklmnopqrstuvwsyz1234567890'
+        let newStr = ''
+        for (let i = 0; i < num; i++) {
+          newStr += str.split('')[Math.ceil(Math.random() * 36)]
+        }
+        return newStr
+      }
+
+
+
+
+
+
 
 
     },
